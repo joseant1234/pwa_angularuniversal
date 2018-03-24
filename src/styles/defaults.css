@@ -1,0 +1,12 @@
+body{
+  margin: 0px;
+  font-family: 'Open Sans', Roboto, Arial, Helvetica, sans-serif;
+}
+
+/* los navegadores por defecto, cuando se visita una pagina le agrega el color morado */
+a{
+  color: inherit;
+}
+a:visited{
+  color: inherit;
+}

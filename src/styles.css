@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/defaults.css';
+@import './styles/colors.css';
+
+
+.large-padding{
+  padding: 10px 15px;
+}
+
+.float-right{
+  float: right;
+}
+
+.small-font{
+  font-size: 0.8rem;
+}
+
+.main-nav .float-right a{
+  margin-left: 1em;
+}
+
+.main-nav a{
+  text-decoration: none;
+}

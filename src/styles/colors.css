@@ -1,0 +1,16 @@
+/*
+  red: #FF5349
+  blue: #4F80E1
+  green: #18CDCA
+  grey: #F0F0F1
+  purple: #292C44
+  black: #302D33
+*/
+
+.blue{
+  background-color: #4F80E1;
+}
+
+.light-text{
+  color: #F0F0F1;
+}
