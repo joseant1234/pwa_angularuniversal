@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Rx';
 
+import { UserService } from './users.service';
+
 import { IUser } from '../structures/users';
 
 import 'rxjs/add/operator/map';
@@ -17,7 +19,7 @@ import * as firebase from 'firebase/app';
 export class AuthService {
 
   // una manera de inyectar dependencias es a traves del constructor
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth, private userS: UserService) {
   }
 
   getUser(): Observable<IUser> {
@@ -37,7 +39,9 @@ export class AuthService {
     // signInWithPopup require como argumento un objecto provider de la clase AuthProvider
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then(result => {
-      console.log(result.user);
+      // el usuario está en result.user
+      // console.log(result.user);
+      return this.userS.add({uid: result.user.uid, email: result.user.email})
     }).catch(console.log);
   }
 }
