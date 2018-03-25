@@ -7,6 +7,10 @@
   black: #302D33
 */
 
+body{
+  background-color: #292C44;
+  color: #F0F0F1;
+}
 .blue{
   background-color: #4F80E1;
 }
