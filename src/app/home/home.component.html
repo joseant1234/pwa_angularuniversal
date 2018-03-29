@@ -1,0 +1,6 @@
+<ul>
+  <!-- la consulta es una operaciòn asincrona por tanto se pasa el pipe async para poder consultar de manera constante los datos q vienen del observador -->
+  <li *ngFor="let list of listS.lists | async">
+    {{list.title}}
+  </li>
+</ul>
