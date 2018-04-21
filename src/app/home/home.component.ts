@@ -9,7 +9,7 @@ import { ListService } from '../services/lists.service';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private listS : ListService) {}
+  constructor(private listS: ListService) {}
 
   ngOnInit() {
   }

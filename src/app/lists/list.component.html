@@ -1,2 +1,6 @@
 <p>Lista de un pendiente</p>
-<todo-creator></todo-creator>
+<todo-creator [id]="listId"></todo-creator>
+
+<ul>
+	<li *ngFor="let todo of todos | async">{{todo.content}}</li>
+</ul>

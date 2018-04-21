@@ -20,6 +20,7 @@ import { TodoCreatorComponent } from './todos/creator/todos.creator.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/users.service';
 import { ListService } from './services/lists.service';
+import { TodoService } from './services/todos.service';
 
 import { AuthGuard } from './guards/auth.guard.service';
 
@@ -43,7 +44,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     AngularFireAuthModule,
     FormsModule,
   ],
-  providers: [AuthService, AuthGuard, UserService, ListService],
+  providers: [AuthService, AuthGuard, UserService, ListService, TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

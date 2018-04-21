@@ -41,7 +41,7 @@ export class AuthService {
     .then(result => {
       // el usuario está en result.user
       // console.log(result.user);
-      return this.userS.add({uid: result.user.uid, email: result.user.email})
+      return this.userS.add({uid: result.user.uid, email: result.user.email});
     }).catch(console.log);
   }
 }

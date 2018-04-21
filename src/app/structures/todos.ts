@@ -1,14 +1,14 @@
 // los enums permite definir valores numeros q tengan un nombre
-export enum TStatus{
+export enum TStatus {
 	Created,
 	Completed,
 	Failed,
 	Expired
 }
-export interface ITodo{
+export interface ITodo {
 	id ?: string;
-	content : string;
-	status : TStatus;
+	content: string;
+	status: TStatus;
 	description ?: string;
 	createdAt ?: any;
 }
