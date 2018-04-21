@@ -14,6 +14,8 @@ import { AppComponent } from './base/app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ListCreatorComponent } from './lists/creator/list.creator.component';
+import { ListComponent } from './lists/list.component';
+import { TodoCreatorComponent } from './todos/creator/todos.creator.component';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/users.service';
@@ -29,6 +31,8 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     HomeComponent,
     LoginComponent,
     ListCreatorComponent,
+    ListComponent,
+    TodoCreatorComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),

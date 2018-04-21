@@ -1,6 +1,12 @@
-<ul>
-  <!-- la consulta es una operaciòn asincrona por tanto se pasa el pipe async para poder consultar de manera constante los datos q vienen del observador -->
-  <li *ngFor="let list of listS.lists | async">
-    {{list.title}}
-  </li>
-</ul>
+<!-- la consulta es una operaciòn asincrona por tanto se pasa el pipe async para poder consultar de manera constante los datos q vienen del observador -->
+<div class="large-padding">
+	<a routerLink="/lists/{{list.id}}" *ngFor="let list of listS.lists | async">
+		<article class="card block large-padding top-space with-badge">
+		<h4>{{list.title}}</h4>
+		<div class="badge">
+			<span>0</span>
+		</div>
+		</article>
+	</a>
+</div>
+
