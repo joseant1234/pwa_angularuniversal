@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 // para ngModel
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -16,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { ListCreatorComponent } from './lists/creator/list.creator.component';
 import { ListComponent } from './lists/list.component';
 import { TodoCreatorComponent } from './todos/creator/todos.creator.component';
+import { TodoCardComponent } from './todos/card/todo.card.component';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/users.service';
@@ -34,6 +36,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     ListCreatorComponent,
     ListComponent,
     TodoCreatorComponent,
+    TodoCardComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
@@ -43,6 +46,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthService, AuthGuard, UserService, ListService, TodoService],
   bootstrap: [AppComponent]
