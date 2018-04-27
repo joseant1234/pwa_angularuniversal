@@ -1,4 +1,11 @@
-<div class="lateral-padding">
+<div class="text-right">
+	<button type="button" class="large-padding pointer no-background light-text" (click)="toggleForm()">
+		{{label()}}
+		<i class="fa {{icon()}}"></i>
+	</button>
+</div>
+<!-- se define la animacion con el nombre del triger[@openClose] y la propiedad q va contener el estado en el q esta -->
+<div class="lateral-padding overflow-hidden" [@openClose]="formState">
 	<input type="text" placeholder="¿Que vas hacer?" [(ngModel)]="todo.content" class="form-control" required min="3">
 	<textarea placeholder="Informacion adicional (opcional)" [(ngModel)]="todo.description" class="form-control"></textarea>
 
