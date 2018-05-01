@@ -12,4 +12,8 @@ export class TodoCardComponent implements OnInit{
 	ngOnInit(){
 
 	}
+
+	completed(){
+		console.log('hola')
+	}
 }

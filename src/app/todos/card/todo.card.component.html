@@ -1,4 +1,5 @@
-<article class="card large-padding top-space block">
+<!-- swipeLeft es una funcion de hammerjs -->
+<article class="card large-padding top-space block" (swipeLeft)="completed()">
 	<h4>{{todo.content}}</h4>
 	<p *ngIf="todo.description">{{todo.description}}</p>
 </article>

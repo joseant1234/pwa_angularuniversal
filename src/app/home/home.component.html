@@ -1,6 +1,8 @@
 <!-- la consulta es una operaciòn asincrona por tanto se pasa el pipe async para poder consultar de manera constante los datos q vienen del observador -->
-<div class="large-padding">
-	<div *ngFor="let list of listS.lists | async" @enterState >
+<!-- ? es el operador llamado safe_navigation, se usa para indicarle al template q el valor su costado (listS.lists | async) puede ser de manera temporal undefined o null y luego quizas adopte un valor -->
+<!-- de manera inicial la lista devuelven un valor null porque no han terminado de descargar la informacion de la base de datos, una vez q tenga valor permite usar la propiedad length -->
+<div class="large-padding" [@enterState]="(listS.lists | async)?.length">
+	<div *ngFor="let list of listS.lists | async" >
 		<a routerLink="/lists/{{list.id}}">
 			<article class="card block large-padding top-space with-badge">
 			<h4>{{list.title}}</h4>
