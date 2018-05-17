@@ -85,7 +85,24 @@ button.no-background{
   justify-content: center;
 }
 
-
+.todo-card{
+  /* transform: translateX(-100px); */
+  position: relative;
+}
+.todo-card::after{
+  position: absolute;
+  /* para esconderlo  */
+  z-index: -1;
+  /* end para esconderlo  */
+  /* icono */
+  content: '\f00c';
+  font-family: FontAwesome;
+  /* end icono */
+  top: 50%;
+  right: -2em;
+  font-weight: bold;
+  color: #18CDCA;
+}
 
 .form-control{
   width: 100%;

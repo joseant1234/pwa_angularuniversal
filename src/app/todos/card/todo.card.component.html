@@ -1,5 +1,12 @@
 <!-- swipeLeft es una funcion de hammerjs -->
-<article class="card large-padding top-space block" (swipeLeft)="completed()">
+<article
+	class="card large-padding top-space block todo-card"
+	(mousedown)="press = 'down'"
+	(mouseup)="press = 'up'"
+	(press)="press = 'down'"
+	(pressUp)="press = 'up'"
+	[@pressAnimation]="press"
+	(swipeLeft)="completed()">
 	<h4>{{todo.content}}</h4>
 	<p *ngIf="todo.description">{{todo.description}}</p>
 </article>
