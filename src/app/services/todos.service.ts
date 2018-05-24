@@ -24,7 +24,7 @@ export class TodoService{
 
 	setCollection(listId : string){
 		this.listId = listId;
-		this.collection = this.afs.collection('lists').doc(listId).collection('todos');	
+		this.collection = this.afs.collection('lists').doc(listId).collection('todos');
 		// en el servicio list, metodo setCollection se usa snapshotChanges y se itera sobre cada uno de los elementos con map(actions), eso actions son los documentChangeAction
 		// se esta guardando todos los objectos de la clase documentChangeAction
 		this.ref = this.collection.snapshotChanges();
@@ -53,6 +53,12 @@ export class TodoService{
 		todo.createdAt = createdAt;
 
 		return this.collection.add(todo);
+	}
+
+	update(listId : string, todo: ITodo) : Promise<void>{
+		if(!this.collection || this.listId != listId) this.setCollection(listId);
+
+		return this.collection.doc(todo.id).update({status: todo.status});
 	}
 
 

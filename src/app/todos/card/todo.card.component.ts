@@ -3,6 +3,8 @@ import { trigger,state,style,transition,animate } from '@angular/animations';
 
 import { ITodo, TStatus } from '../../structures/todos';
 
+import { TodoService } from '../../services/todos.service';
+
 // state 0 es el estado q representa a creado
 // state void representa q el elemento no está dentro de la vista
 // state 1 es el estado completo
@@ -42,15 +44,18 @@ import { ITodo, TStatus } from '../../structures/todos';
 })
 export class TodoCardComponent implements OnInit{
 	@Input() todo : ITodo;
+	@Input() listId : string;
 	// down es con el click
 	// up no esta haciendo presion en el elemento
 	public press : string = 'up';
 
-	ngOnInit(){
+	// se pide al inyector de dependencias q envia la instancia del servicio
+	constructor(private todoS : TodoService){}
 
-	}
+	ngOnInit(){}
 
 	completed(){
 		this.todo.status = TStatus.Completed;
+		this.todoS.update(this.listId,this.todo)
 	}
 }
