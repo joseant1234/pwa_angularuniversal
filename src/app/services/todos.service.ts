@@ -24,7 +24,14 @@ export class TodoService{
 
 	setCollection(listId : string){
 		this.listId = listId;
-		this.collection = this.afs.collection('lists').doc(listId).collection('todos');
+		// sin where u ordenanimento solo seria doc(listId).collectin('todos');
+		// para un where u ordenamiento se usa una funcion q contiene un objecto al cual se le va a ejecutar la operacion
+		// se debe hacer un return del resultado de las operaciones
+		this.collection = this.afs.collection('lists')
+											.doc(listId)
+											.collection('todos',(ref)=>{
+												return ref.where('status','==',0);
+											});
 		// en el servicio list, metodo setCollection se usa snapshotChanges y se itera sobre cada uno de los elementos con map(actions), eso actions son los documentChangeAction
 		// se esta guardando todos los objectos de la clase documentChangeAction
 		this.ref = this.collection.snapshotChanges();
