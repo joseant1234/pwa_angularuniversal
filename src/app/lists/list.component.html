@@ -1,3 +1,8 @@
 <todo-creator [id]="listId"></todo-creator>
 
-<todo-card *ngFor="let todo of todos | async" [todo]="todo" [listId]=listId></todo-card>
+<!-- trackByNombreFuncion -->
+<!-- cada vez q se llama al pipe async se genera una nueva subscription al observador q se genero, todos es el observador  -->
+<!-- como hay 2 async hay 2 subscription en la vista -->
+<div [@enterState]="(todos | async)?.length">
+  <todo-card *ngFor="let todo of todos | async; trackBy: trackByTodoObjects" [todo]="todo" [listId]=listId></todo-card>
+</div>

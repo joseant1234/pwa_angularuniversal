@@ -18,10 +18,10 @@ import { ITodo, TStatus } from '../../structures/todos';
 			transition('collapsed <=> expanded',[animate(300,style({height: '*'})),animate(300)])
 		])
 	]
-	
+
 })
 export class TodoCreatorComponent implements OnInit {
-	
+
 	@Input() id : string;
 
 	public formState : string = 'collapsed';
@@ -33,7 +33,9 @@ export class TodoCreatorComponent implements OnInit {
 	ngOnInit() {}
 
 	save(){
-		this.todoS.add(this.id,this.todo);
+		this.todoS.add(this.id,this.todo).then((r)=>{
+			this.todo = { content: '', description: null, status: TStatus.Created }
+		});
 	}
 
 	icon(){

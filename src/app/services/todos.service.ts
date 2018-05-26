@@ -34,7 +34,9 @@ export class TodoService{
 											});
 		// en el servicio list, metodo setCollection se usa snapshotChanges y se itera sobre cada uno de los elementos con map(actions), eso actions son los documentChangeAction
 		// se esta guardando todos los objectos de la clase documentChangeAction
-		this.ref = this.collection.snapshotChanges();
+		// share es un operador q tienen los observadores, lo q hace es aunque se suscriban varias veces al mismo observador siempre se usa el original o base evitando en este caso cuando se use mas de una vez el async pipe en la vista se crea mas de una suscripcion
+		// usando el operador share, al eliminar mas 1 elemento ya no se confunde angular pues ambos async pipe estan usando el mismo observador
+		this.ref = this.collection.snapshotChanges().share();
 	}
 
 	getFromList(listId : string) : Observable<ITodo[]>{
