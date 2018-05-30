@@ -5,9 +5,13 @@ import { ITodo, TStatus } from '../../structures/todos';
 
 import { TodoService } from '../../services/todos.service';
 
-// state 0 es el estado q representa a creado
+import * as moment from 'moment';
+
+
+moment.locale('es');
+// state 0 es el estado q representa a creado (debdo al enum)
 // state void representa q el elemento no está dentro de la vista
-// state 1 es el estado completo
+// state 1 es el estado completo (debido al enum)
 // se usa numeros pues esta q se usan Enums
 // en la primera animacion se pone el valor del estado y en la segunda animacion por lo general la duracion de la animacion
 // se debe hacer una consulta con where para q no muestre las tareas completas, debido al uso del state lo oculta, pero es necesario hacer la consulta para enviar solo las tareas pendientes por cuestion de performance. Además, si hay 4 elementos y se hace swipe del elemento 3 se veria como visibility: hidden
@@ -49,6 +53,9 @@ export class TodoCardComponent implements OnInit{
 	// down es con el click
 	// up no esta haciendo presion en el elemento
 	public press : string = 'up';
+
+	// funciones de moment esta disponible en la vista
+	public moment : any = moment;
 
 	// se pide al inyector de dependencias q envia la instancia del servicio
 	constructor(private todoS : TodoService){}

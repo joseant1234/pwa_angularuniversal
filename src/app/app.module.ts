@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+  import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 // para ngModel
@@ -9,6 +9,9 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
 import { routes } from './routes';
 
 import { AppComponent } from './base/app.component';
@@ -47,6 +50,8 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     AngularFireAuthModule,
     FormsModule,
     BrowserAnimationsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
   providers: [AuthService, AuthGuard, UserService, ListService, TodoService],
   bootstrap: [AppComponent]

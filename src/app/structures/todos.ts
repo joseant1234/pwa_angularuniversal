@@ -11,6 +11,7 @@ export interface ITodo {
 	status: TStatus;
 	description ?: string;
 	createdAt ?: any;
+	deadline ?: any;
 }
 
 // guarda un numero, pero al momento de asignarle se le hace de la siguiente manera: TStatus.Created

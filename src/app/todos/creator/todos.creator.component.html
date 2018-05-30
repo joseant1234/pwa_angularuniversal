@@ -9,6 +9,15 @@
 	<input type="text" placeholder="¿Que vas hacer?" [(ngModel)]="todo.content" class="form-control" required min="3">
 	<textarea placeholder="Informacion adicional (opcional)" [(ngModel)]="todo.description" class="form-control"></textarea>
 
+	<div class="date-time-picker">
+		<!-- owlDateTimeTrigger para abrir el calendario al hacer click en el input -->
+		<input type="text" placeholder="Hasta que fecha se va ejecutar (opcional)" [owlDateTime]="dt"
+			[owlDateTimeTrigger]="dt" class="form-control" [(ngModel)]="todo.deadline">
+		<!-- el identificador tiene q coincider con el q esta input text -->
+		<!-- se hace el binding con la fecha asignada en el input  -->
+		<owl-date-time #dt></owl-date-time>
+	</div>
+
 	<div class="top-space">
 	    <button type="button" class="btn blue light-text full-width" (click)="save()">
 	      <i class="fa fa-save"></i>
