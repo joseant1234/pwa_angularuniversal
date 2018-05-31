@@ -10,6 +10,12 @@ if (environment.production) {
   enableProdMode();
 }
 
+// registrar service worker, se comprueba q solo se ejecuta en el navegador
+// al usar angularuniversal se asegura q no se ejecute del lador del servidor
+if(navigator && navigator.serviceWorker){
+  navigator.serviceWorker.register('/sw.js')
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule);
 });
