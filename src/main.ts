@@ -12,9 +12,13 @@ if (environment.production) {
 
 // registrar service worker, se comprueba q solo se ejecuta en el navegador
 // al usar angularuniversal se asegura q no se ejecute del lador del servidor
-if(navigator && navigator.serviceWorker){
-  navigator.serviceWorker.register('/sw.js')
-}
+// si se va usar sw de manera manual
+// if(navigator && navigator.serviceWorker){
+//   navigator.serviceWorker.register('/sw.js')
+// }
+
+// para utilizar service worker de angular se debe usar angular 5 + y angular cli 1.6+ (ng -v)
+
 
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule);

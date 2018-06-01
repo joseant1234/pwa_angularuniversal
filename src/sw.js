@@ -1,4 +1,4 @@
-// la sw debe estar en root del proyecto, porque si se estaría dentro de la carpetaassets solo el scope seria a la carpeta q esta contenida
+// la sw debe estar en root del proyecto, porque si se estaría dentro de la carpeta assets solo el scope seria a la carpeta q esta contenida
 // en .angular-cli.json en assets se debe declarar la sw
 // un buen lugar para registrar la sw puede ser el archivo main.ts
 
