@@ -11,6 +11,10 @@
   <!-- cuando el usurio no ha iniciado sesion, authState resuelve como null y por tanto el resultado de la expresion es false -->
   <!-- cuando hay un usuario, resuelve como verdadero y por tanto el resultado de la expresion es true -->
   <div class="float-right" *ngIf="afAuth.authState | async">
+    <a href="#">
+      <i class="fa fa-bell"></i>
+    </a>
+
     <a routerLink="/">
       <i class="fa fa-list"></i>
       <span class="small-font">Mis listas</span>

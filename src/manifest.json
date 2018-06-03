@@ -1,10 +1,11 @@
 {
   "name": "PWA app",
   "short_name": "PWA",
-  "theme_color": "#292c44",
+    "theme_color": "#292c44",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
+  "gcm_sender_id": "103953800507",
   "icons": [
     {
       "src": "assets/images/icons/icon-72x72.png",
