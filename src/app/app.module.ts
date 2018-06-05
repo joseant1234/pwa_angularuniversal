@@ -29,6 +29,7 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/users.service';
 import { ListService } from './services/lists.service';
 import { TodoService } from './services/todos.service';
+import { PushNotificationsService } from './services/push-notifications.service'
 
 import { AuthGuard } from './guards/auth.guard.service';
 
@@ -57,7 +58,7 @@ import {TransferHttpCacheModule} from '@nguniversal/common';
     OwlNativeDateTimeModule,
     environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
   ],
-  providers: [AuthService, AuthGuard, UserService, ListService, TodoService],
+  providers: [AuthService, AuthGuard, UserService, ListService, TodoService, PushNotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

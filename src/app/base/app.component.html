@@ -15,7 +15,7 @@
 
     <ng-template #activate>
       <p>¿Te gustaria activar las notificaciones push?</p>
-      <button type="button" name="button" class="blue light-text small-padding">Activar</button>
+      <button type="button" name="button" (click)="requestPushPermission()" class="blue light-text small-padding">Activar</button>
     </ng-template>
   </div>
 

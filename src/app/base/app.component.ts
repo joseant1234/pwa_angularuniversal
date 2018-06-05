@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AngularFireAuth } from 'angularfire2/auth';
+import { PushNotificationsService } from '../services/push-notifications.service';
 
 // todos los metodos del sdk de firebase esta en la prop firebase
 // import * as firebase from 'firebase';
@@ -16,9 +17,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class AppComponent {
 
-  public token : Boolean = true;
+  public token : Boolean = false;
   // las prop del componente que son public esta disponible en la vista
-  constructor(public afAuth: AngularFireAuth, private router: Router) {}
+  constructor(public afAuth: AngularFireAuth, private router: Router, public pushS: PushNotificationsService) {}
 
   ngOnInit(){
     // el metodo messagin return una instancia del objecto q permite manipular la subscripcion a la notificaiones push de firebase
@@ -29,6 +30,14 @@ export class AppComponent {
     // messaging.requestPermission().then(console.log);
 
     // se va usar el servicio push notification con un boton de campana q permite ver las notificaciones push
+  }
+
+  requestPushPermission(){
+    this.pushS.requestPermission()
+  }
+
+  rejectPushPermission(){
+
   }
 
   logout() {
