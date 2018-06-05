@@ -1,10 +1,23 @@
 <!-- <a routerLink="/">Home</a>
 <a routerLink="/lazy">Lazy</a>
 <a routerLink="/lazy/nested">Lazy_Nested</a> -->
-<nav class="main-nav blue large-padding light-text">
+<nav class="main-nav blue large-padding light-text relative">
   <a routerLink="/">
     <span class="nav-title">PWA</span>
   </a>
+
+  <div class="notification-window card small-padding">
+    <!-- luego del else se pone un identificador para el ng-template  -->
+    <div *ngIf="token; else activate">
+      <p>¿Te gustaria desactivar las notificaciones push?</p>
+      <button type="button" name="button" classs="blue light-text small-padding">Desactivar</button>
+    </div>
+
+    <ng-template #activate>
+      <p>¿Te gustaria activar las notificaciones push?</p>
+      <button type="button" name="button" class="blue light-text small-padding">Activar</button>
+    </ng-template>
+  </div>
 
   <!-- el valor de authState es asincrono (es una promesa), por tanto se usa el pipe async -->
   <!-- si se usa async, la expresion q está al costado es una promesa o un observador, y la vista de actualiza cuando se resuelve la promesa o el observador -->

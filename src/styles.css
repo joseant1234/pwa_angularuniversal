@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-button.no-background{
+button.no-background, button.card{
   font-size: 1em;
   outline: 0;
   border: 0;
@@ -46,6 +46,14 @@ button.no-background{
 
 .no-background{
   background: transparent;
+}
+
+.relative{
+  position: relative;
+}
+
+.small-padding{
+  padding: 8px;
 }
 
 .card{
@@ -83,6 +91,15 @@ button.no-background{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.notification-window{
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  width: 300px;
+  font-size: 0.7em;
+  z-index: 100;
 }
 
 .todo-card{

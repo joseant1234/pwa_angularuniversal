@@ -16,6 +16,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class AppComponent {
 
+  public token : Boolean = true;
   // las prop del componente que son public esta disponible en la vista
   constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
