@@ -33,7 +33,8 @@ export class AppComponent {
   }
 
   requestPushPermission(){
-    this.pushS.requestPermission()
+    // imprime el resultado de token de la promesa q se hizo al getToken()
+    this.pushS.requestPermission().then(console.log);
   }
 
   rejectPushPermission(){
