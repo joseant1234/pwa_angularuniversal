@@ -30,6 +30,8 @@ export class AppComponent {
     // messaging.requestPermission().then(console.log);
 
     // se va usar el servicio push notification con un boton de campana q permite ver las notificaciones push
+
+    this.pushS.getSubscription().then(console.log)
   }
 
   requestPushPermission(){

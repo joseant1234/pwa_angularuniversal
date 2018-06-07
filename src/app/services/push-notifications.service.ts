@@ -5,7 +5,35 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class PushNotificationsService{
+   // para desuscribirse y conocer el status de la suscripcion (si se activo los permisos, los rechazo, los bloquo, ...) se debe obtner la sw q se registro con firebase
+   // ese sw se puede obtener con el objeto navigator
+
+
   public messaging = firebase.messaging();
+
+  // la suscripcion es una instancia de la clase pushSuscription q se obtiene del pushManager
+  // el pushManager es una propiedad de cada una de la sw registradas y a traves de este se maneja las suscripciones
+  // los permisos (configurados en requestPermission tambien se manejan via push manager, pero como se uso la api de firebase lo hace mas sencillo
+
+  getSubscription() : Promise<any>{
+    // necesario pues el codigo tambien se ejecuta en el servidor
+    if(!navigator) return;
+
+    // se obtiene las servicios worker para el dominio,
+    return navigator.serviceWorker.getRegistrations().then(registrations => {
+      const firebaseSWs = registrations.filter(sw =>{
+        // debe estar activa la sw, y el nombre debe incluir la cadena firebase-messaging
+        // en console del browser se puede ver q se registro una sw firebase-messaging.sw, esta es la q se esta buscando
+        return sw.active && sw.active.scriptURL.includes("firebase-messaging")
+      });
+
+      // se pone en una promsea pues se esta haciendo return de una promise
+      // el resultado de la promsea es null si no hay un sw de firebase
+      if(firebaseSWs.length < 1) return Promise.resolve(null);
+      // se obtiene la instancia de pushSubscription
+      return firebaseSWs[0].pushManager.getSubscription();
+    });
+  }
 
   requestPermission() : Promise<void>{
     return this.messaging.requestPermission().then(()=>{
