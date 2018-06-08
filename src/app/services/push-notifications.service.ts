@@ -35,6 +35,18 @@ export class PushNotificationsService{
     });
   }
 
+  cancelPermission() : Promise<any>{
+    const subscriptionPro = this.getSubscription();
+
+    // se hace return subscriptionPro, return Promise.resolve(null), para q en conjunto se haga return de la promesa encadenada con la otra promesa
+    // el resultado en la ultima promesa de la cadena, si no tiene pushS seria null
+    return subscriptionPro.then((pushS : PushSubscription) => {
+      if(!pushS) return Promise.resolve(null);
+
+      return pushS.unsubscribe();
+    })
+  }
+
   requestPermission() : Promise<void>{
     return this.messaging.requestPermission().then(()=>{
       // el token (identifica al dispositivo) sirve para enviar notificaciones al dispositivo q acitvo las notificaciones

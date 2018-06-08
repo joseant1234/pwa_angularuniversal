@@ -17,7 +17,7 @@ import { PushNotificationsService } from '../services/push-notifications.service
 })
 export class AppComponent {
 
-  public token : Boolean = false;
+  public token : any;
   // las prop del componente que son public esta disponible en la vista
   constructor(public afAuth: AngularFireAuth, private router: Router, public pushS: PushNotificationsService) {}
 
@@ -30,17 +30,20 @@ export class AppComponent {
     // messaging.requestPermission().then(console.log);
 
     // se va usar el servicio push notification con un boton de campana q permite ver las notificaciones push
-
-    this.pushS.getSubscription().then(console.log)
+    this.token = this.pushS.getSubscription();
   }
 
   requestPushPermission(){
     // imprime el resultado de token de la promesa q se hizo al getToken()
-    this.pushS.requestPermission().then(console.log);
+    this.pushS.requestPermission().then(()=>{
+      this.token = this.pushS.getSubscription();
+    })
   }
 
-  rejectPushPermission(){
-
+  cancelPermission(){
+    this.pushS.cancelPermission().then(()=>{
+      this.token = this.pushS.getSubscription();
+    });
   }
 
   logout() {

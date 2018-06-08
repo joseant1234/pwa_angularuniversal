@@ -8,9 +8,11 @@
 
   <div class="notification-window card small-padding">
     <!-- luego del else se pone un identificador para el ng-template  -->
-    <div *ngIf="token; else activate">
+    <!-- como se resolvio la suscripcion de manera async con una promesa se debe colocar el pipe async para evaluar el token de esa manera  -->
+    <!-- token es un objecto por tanto para hacerlo boolean se coloca !! al token -->
+    <div *ngIf="!!(token | async); else activate">
       <p>¿Te gustaria desactivar las notificaciones push?</p>
-      <button type="button" name="button" classs="blue light-text small-padding">Desactivar</button>
+      <button type="button" name="button" (click)="cancelPermission()" classs="blue light-text small-padding">Desactivar</button>
     </div>
 
     <ng-template #activate>
